@@ -30,7 +30,7 @@
 * NA
 
 ## License
-* licensed under the 
+* MIT license
 
 ## Questions
 * For additional help or questions about collaboration, please reach out to luis.canahuate16@gmail.com
