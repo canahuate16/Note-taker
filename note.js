@@ -11,12 +11,16 @@ const { v4: randId } = require('uuid');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+
+
 //api routes
 app.get("/api/notes", function (req, res) {
   res.json(db);
 
 });
 
+//adds note to json db
 app.post("/api/notes", function (req, res) {
   console.log('Post!!');
   console.log(req.body);
@@ -33,18 +37,30 @@ app.post("/api/notes", function (req, res) {
 
     fs.writeFile('db/db.json', JSON.stringify(note), (err) => {
       if (err) {
-        console.log (err);
-      }else {
-        console.log ('data written succesfully')
+        console.log(err);
+      } else {
+        console.log('data written succesfully')
       }
     })
 
   });
-  
+
 
 });
 
-//pass in note using FS to write 
+
+//delete notes by ID
+
+app.get ('/api/notes/:id', function (req,res){
+  var deleteId = req.params.newNote;
+  console.log (deleteId)
+
+  for (var i = 0; i < newNote.length; i++) {
+    if (deleteId === newNote[i].id) {
+      return res.json(newNote[i]);
+    }
+  }
+})
 
 
 
