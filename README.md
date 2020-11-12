@@ -10,6 +10,9 @@
 7. [License](#license)
 8. [Questions](#questions)
 
+![note-taker](https://user-images.githubusercontent.com/15930792/98893185-ecef2f00-246f-11eb-8679-45a87a3c8f0d.PNG)
+![note-taker2](https://user-images.githubusercontent.com/15930792/98893187-eeb8f280-246f-11eb-9eed-1b15c22c29a5.PNG)
+
 
 ## Project Description
 * This is an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
@@ -30,7 +33,7 @@
 * NA
 
 ## License
-* licensed under the 
+* MIT license
 
 ## Questions
 * For additional help or questions about collaboration, please reach out to luis.canahuate16@gmail.com
