@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "node note.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "",
   "license": "ISC",
