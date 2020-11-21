@@ -16,7 +16,15 @@ app.use(express.json());
 
 //api routes
 app.get("/api/notes", function (req, res) {
-  res.json(db);
+  fs.readFile("./db/db.json", "utf8", function (error, data) {
+
+    if (error) {
+      return console.log(error);
+    }
+    res.json(JSON.parse(data));
+  })
+
+
 
 });
 
@@ -30,7 +38,7 @@ app.post("/api/notes", function (req, res) {
     if (error) {
       return console.log(error);
     }
-    console.log(data);
+    // console.log(data);
     const note = JSON.parse(data)
     note.push(newNote)
     console.log(note);
@@ -39,6 +47,7 @@ app.post("/api/notes", function (req, res) {
       if (err) {
         console.log(err);
       } else {
+        res.json(note);
         console.log('data written succesfully')
       }
     })
@@ -51,11 +60,19 @@ app.post("/api/notes", function (req, res) {
 
 //delete notes by ID
 
- app.delete("/api/notes/:id", function(req, res) {
-            notes.splice(req.params.id, 1);
-            updateDb();
-            console.log("Deleted note with id "+req.params.id);
-        });
+app.delete("/api/notes/:id", function (req, res) {
+  fs.readFile("./db/db.json", "utf8", function (error, data) {
+
+    if (error) {
+      return console.log(error);
+    }
+    const notes = JSON.parse(data)
+    notes.splice(req.params.id, 1);
+    updateDb(notes, res);
+    console.log("Deleted note with id " + req.params.id);
+  });
+
+})
 
 
 
@@ -74,14 +91,14 @@ app.get("*", function (req, res) {
 
 
 
-function updateDb() {
-            fs.writeFile("db/db.json",JSON.stringify(notes,'\t'),err => {
-                if (err) throw err;
-                return true;
-            });
-        }
+function updateDb(notes, res) {
+  fs.writeFile("db/db.json", JSON.stringify(notes), err => {
+    if (err) throw err;
+    res.json((notes));
+  });
+}
 
- 
+
 
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
