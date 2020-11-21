@@ -51,16 +51,11 @@ app.post("/api/notes", function (req, res) {
 
 //delete notes by ID
 
-app.get ('/api/notes/:id', function (req,res){
-  var deleteId = req.params.newNote;
-  console.log (deleteId)
-
-  for (var i = 0; i < newNote.length; i++) {
-    if (deleteId === newNote[i].id) {
-      return res.json(newNote[i]);
-    }
-  }
-})
+ app.delete("/api/notes/:id", function(req, res) {
+            notes.splice(req.params.id, 1);
+            updateDb();
+            console.log("Deleted note with id "+req.params.id);
+        });
 
 
 
@@ -77,6 +72,18 @@ app.get("*", function (req, res) {
 });
 
 
+
+
+function updateDb() {
+            fs.writeFile("db/db.json",JSON.stringify(notes,'\t'),err => {
+                if (err) throw err;
+                return true;
+            });
+        }
+
+    });
+
+}
 
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
