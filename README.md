@@ -1,6 +1,7 @@
 # Note-taker
-    ## App Link:
+ ## App Link:
 https://note-taker-proj.herokuapp.com/
+
 #### Table of Contents
 1. [Project Description](#project-description)
 2. [Installation Instructions](#installation-instructions)
