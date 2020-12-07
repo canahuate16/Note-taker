@@ -1,5 +1,6 @@
 # Note-taker
-    
+    ## App Link:
+https://note-taker-proj.herokuapp.com/
 #### Table of Contents
 1. [Project Description](#project-description)
 2. [Installation Instructions](#installation-instructions)
@@ -13,8 +14,7 @@
 ![note-taker](https://user-images.githubusercontent.com/15930792/98893185-ecef2f00-246f-11eb-8679-45a87a3c8f0d.PNG)
 ![note-taker2](https://user-images.githubusercontent.com/15930792/98893187-eeb8f280-246f-11eb-9eed-1b15c22c29a5.PNG)
 
-## App Link:
-https://note-taker-proj.herokuapp.com/
+
 
 ## Project Description
 * This is an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
